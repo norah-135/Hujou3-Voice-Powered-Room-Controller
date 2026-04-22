@@ -3,7 +3,7 @@
 
 ![Architecture](https://img.shields.io/badge/Architecture-Dual_MCU-00979D?style=for-the-badge) ![AI Engine](https://img.shields.io/badge/AI_Engine-Python_NLP-FFD43B?style=for-the-badge&logo=python&logoColor=blue) ![Security](https://img.shields.io/badge/Security-Hardened_(OWASP)-brightgreen?style=for-the-badge&logo=shield) ![Status](https://img.shields.io/badge/Status-Production_Ready-blue?style=for-the-badge)
 
-**Hujou3 (هجوع)** is a next-generation, voice-powered ambient room ecosystem. 
+**Hujou3 (هجوع)** is a voice-powered ambient room ecosystem. 
 Designed from the ground up to be seamless, intelligent, and secure, 
 it bridges the gap between hardware engineering and generative AI logic. 
 
