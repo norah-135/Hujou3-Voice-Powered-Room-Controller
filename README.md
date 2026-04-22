@@ -1,10 +1,10 @@
 # Hujou3 (هجوع) 🎙️✨
 
-
-![IoT](https://img.shields.io/badge/IoT-Distributed_System-00979D?style=for-the-badge&logo=arduino)
-![AI-Assisted](https://img.shields.io/badge/Engineering-AI_Assisted_Vibe_Coding-FFD43B?style=for-the-badge&logo=openai)
-![Security](https://img.shields.io/badge/Security-OWASP_IoT_Ready-brightgreen?style=for-the-badge&logo=shield)
-![Status](https://img.shields.io/badge/Phase-Production_Ready-blue?style=for-the-badge)
+![Project Name](https://img.shields.io/badge/Project-Hujou3_Voice_Powered-blueviolet?style=for-the-badge&logo=soundcharts)
+![IoT Architecture](https://img.shields.io/badge/Architecture-Distributed_IoT_Hub-00979D?style=for-the-badge&logo=arduino)
+![Security](https://img.shields.io/badge/Security-OWASP_Top_10_Hardened-brightgreen?style=for-the-badge&logo=pre-commit)
+![Vibe Coded](https://img.shields.io/badge/Development-AI_Vibe_Coded-FFD43B?style=for-the-badge&logo=python)
+![Connectivity](https://img.shields.io/badge/Connectivity-HTTPS_SSL_Secure-red?style=for-the-badge&logo=google-cloud)
 
 ## 📌 Overview
 
@@ -24,7 +24,7 @@ This project orchestrates a heterogeneous array of hardware and advanced softwar
 | **Arduino R4 WiFi** | FSM execution, Tuya Cloud negotiation, hardware actuation. |
 | **INMP441 Mic** | High-fidelity digital I2S audio capture. |
 | **DFPlayer Mini + Speaker** | Local playback of environmental soundscapes (MP3). |
-| **SSD1306 OLED** | Real-time diagnostics and local state telemetry. |
+| **OLED** | Real-time diagnostics and local state telemetry. |
 | **Tuya Smart Bulb** | Environment ambient lighting. |
 
 **Core SDKs & Libraries**:
