@@ -1,6 +1,5 @@
 # Hujou3 (هجوع) 🎙️✨
 
-> *Ambient Intelligence. Perfect Solitude. Engineered for Peace.*
 
 ![IoT](https://img.shields.io/badge/IoT-Distributed_System-00979D?style=for-the-badge&logo=arduino)
 ![AI-Assisted](https://img.shields.io/badge/Engineering-AI_Assisted_Vibe_Coding-FFD43B?style=for-the-badge&logo=openai)
