@@ -1,12 +1,12 @@
 # 🌙 Hujou3 (هجوع) | Voice-Powered Ambient Intelligence
 
 <div align="center">
-
-![IoT](https://img.shields.io/badge/IoT-Distributed_System-00979D?style=for-the-badge&logo=arduino)
-![AI-Assisted](https://img.shields.io/badge/Engineering-AI_Assisted_Vibe_Coding-FFD43B?style=for-the-badge&logo=openai)
-![Security](https://img.shields.io/badge/Security-OWASP_IoT_Hardened-brightgreen?style=for-the-badge&logo=shield)
-![Connectivity](https://img.shields.io/badge/Connectivity-Cloud_SSL_|_Local_Auth-red?style=for-the-badge&logo=google-cloud)
-
+  
+![Project Name](https://img.shields.io/badge/Project-Hujou3_Voice_Powered-blueviolet?style=for-the-badge&logo=soundcharts)
+![IoT Architecture](https://img.shields.io/badge/Architecture-Distributed_IoT_Hub-00979D?style=for-the-badge&logo=arduino)
+![Security](https://img.shields.io/badge/Security-OWASP_Top_10_Hardened-brightgreen?style=for-the-badge&logo=pre-commit)
+![Vibe Coded](https://img.shields.io/badge/Development-AI_Vibe_Coded-FFD43B?style=for-the-badge&logo=python)
+![Connectivity](https://img.shields.io/badge/Connectivity-HTTPS_SSL_Secure-red?style=for-the-badge&logo=google-cloud)
 </div>
 
 ## 📌 Overview
@@ -26,7 +26,7 @@ Hujou3 employs a **Distributed System Architecture** strictly separating the con
 
 ---
 
-## 🛡️ Security Layer (OWASP IoT Top 10 Ready)
+## 🛡️ Security Layer 
 
 Security is not an afterthought in Hujou3; it is woven into the communication protocol.
 
