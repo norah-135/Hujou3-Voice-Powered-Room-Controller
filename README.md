@@ -1,10 +1,13 @@
-# Hujou3 (هجوع) 🎙️✨
+# 🌙 Hujou3 (هجوع) | Voice-Powered Ambient Intelligence
 
-![Project Name](https://img.shields.io/badge/Project-Hujou3_Voice_Powered-blueviolet?style=for-the-badge&logo=soundcharts)
-![IoT Architecture](https://img.shields.io/badge/Architecture-Distributed_IoT_Hub-00979D?style=for-the-badge&logo=arduino)
-![Security](https://img.shields.io/badge/Security-OWASP_Top_10_Hardened-brightgreen?style=for-the-badge&logo=pre-commit)
-![Vibe Coded](https://img.shields.io/badge/Development-AI_Vibe_Coded-FFD43B?style=for-the-badge&logo=python)
-![Connectivity](https://img.shields.io/badge/Connectivity-HTTPS_SSL_Secure-red?style=for-the-badge&logo=google-cloud)
+<div align="center">
+
+![IoT](https://img.shields.io/badge/IoT-Distributed_System-00979D?style=for-the-badge&logo=arduino)
+![AI-Assisted](https://img.shields.io/badge/Engineering-AI_Assisted_Vibe_Coding-FFD43B?style=for-the-badge&logo=openai)
+![Security](https://img.shields.io/badge/Security-OWASP_IoT_Hardened-brightgreen?style=for-the-badge&logo=shield)
+![Connectivity](https://img.shields.io/badge/Connectivity-Cloud_SSL_|_Local_Auth-red?style=for-the-badge&logo=google-cloud)
+
+</div>
 
 ## 📌 Overview
 
@@ -14,65 +17,65 @@ Breaking away from traditional development pipelines, Hujou3 is proudly architec
 
 ---
 
-## 🛠️ Hardware & Tech Stack
-
-This project orchestrates a heterogeneous array of hardware and advanced software libraries.
-
-| Component | Function / Role |
-| :--- | :--- |
-| **ESP32 Edge Node** | Audio capture, VAD, High-speed Serial streaming, HTTP payload construction. |
-| **Arduino R4 WiFi** | FSM execution, Tuya Cloud negotiation, hardware actuation. |
-| **INMP441 Mic** | High-fidelity digital I2S audio capture. |
-| **DFPlayer Mini + Speaker** | Local playback of environmental soundscapes (MP3). |
-| **OLED** | Real-time diagnostics and local state telemetry. |
-| **Tuya Smart Bulb** | Environment ambient lighting. |
-
-**Core SDKs & Libraries**:
-* `ArduinoJson` (Serialization/Deserialization)
-* `Tuya SDK / OpenAPI` (Cloud Lighting control)
-* `NTPClient` (Live Temporal Synchronization)
-* `Crypto / SHA256` (HMAC request signing)
-
----
-
-## 🏛️ System Architecture
+## 🏗️ System Architecture
 
 Hujou3 employs a **Distributed System Architecture** strictly separating the control-plane from the data-plane:
 
-1. **The Brain (ESP32 Node)**: Acts as the intelligent decision-maker and local gateway. It captures human interaction, bridges the raw acoustic data to the computing engine via a 921600-baud data-link, and ultimately formulates actionable directives.
-2. **The Actuator Hub (Arduino R4 WiFi)**: Operates as the physical execution layer. Driven by a deterministic Finite State Machine (FSM), it parses directives, manages power states, and directly controls the Tuya lightning ecosystem and DFPlayer audio output.
+1. **The Brain (ESP32 Node)**: Acts as the intelligent decision-maker and local gateway. It captures human interaction via I2S, processes audio buffers, and formulates actionable directives.
+2. **The Actuator Hub (Arduino R4 WiFi)**: Operates as the physical execution layer. Driven by a deterministic **Finite State Machine (FSM)**, it parses directives, manages power states, and directly controls the Tuya lighting ecosystem and DFPlayer audio output.
 
 ---
 
-## 🌐 Networking Layer
+## 🛡️ Security Layer (OWASP IoT Top 10 Ready)
 
-Intra-system communication utilizes a hardened, localized network protocol:
-* **Protocol**: Restful `HTTP/1.1 POST` requests transmitted over local WiFi.
-* **Payload Structure**: Commands are serialized into lightweight **JSON** formats.
-* **Discovery**: Relies on Zero-Configuration Networking (mDNS `noura-hub.local`) to bridge the Edge Node and Actuator Hub dynamically.
-* **Time Synchronization**: Integrated `NTPClient` continuously syncs system epoch time to prevent clock drift and enforce packet validity.
-* **Cloud API Bridge**: Lighting commands trigger direct `POST` calls to the Tuya Cloud OpenAPI using meticulously calculated `HMAC-SHA256` signatures.
-
----
-
-## 🛡️ Security Layer (OWASP IoT Top 10)
-
-Security is not an afterthought in Hujou3; it is woven into the protocol.
+Security is not an afterthought in Hujou3; it is woven into the communication protocol.
 
 ### 1. High-Entropy Authentication (Shared Secret)
-All inbound commands to the Arduino Hub are dropped unless validated by a persistent identity mechanism. A cryptographic, **High-Entropy Token** (`HUJOU3_AUTH_TOKEN`) validates identity. If the JSON payload lacks the matching shared secret, the connection yields `401 Unauthorized` and is aggressively terminated.
+All inbound commands to the Hub are dropped unless validated by a persistent identity mechanism. A cryptographic, **High-Entropy Token** (`HUJOU3_AUTH_TOKEN`) validates every request. Requests lacking this token yield a `401 Unauthorized` and are aggressively terminated.
 
 ### 2. Replay Attack Protection (Temporal Validation)
 To defend against network sniffing and replay attacks, the system utilizes **Temporal Validation**:
-* The ESP32 injects a live NTP `Timestamp` into every JSON payload.
-* Upon reception, the Arduino Hub extracts the packet's time and compares it against its own NTP-synchronized clock.
-* If `|Hub Time - Payload Time| > 5 seconds`, the command is categorically rejected with a `408 Request Timeout`. Stolen packets become entirely useless within margin of network transit.
+* The ESP32 injects a live **NTP Timestamp** into every JSON payload.
+* Upon reception, the Arduino Hub validates that the command was sent within a **5-second window**.
+* Stolen packets become entirely useless within seconds, ensuring the system's integrity even on unencrypted local channels.
 
-### 3. Application Hardening & Method Filtering
-Aligning with OWASP best practices for IoT deployment:
-* **Secret Isolation**: All credentials, tuples, and secrets are stripped from source code and sequestered in a `.gitignore` isolated `#pragma once` header file (`secrets.h`).
-* **Method Enforcement**: The HTTP handler acts as a strict firewall. Any HTTP verb other than `POST` (e.g., standard browser `GET` requests, scanner probing) is instantly slapped with a `405 Method Not Allowed`, slamming the door on reconnaissance attempts.
+### 3. Application Hardening
+* **Secret Isolation**: All credentials and tokens are sequestered in a `.gitignore` isolated header file (`secrets.h`).
+* **Method Enforcement**: The HTTP handler acts as a strict firewall, rejecting any verb other than `POST` with a `405 Method Not Allowed`.
 
 ---
 
-*Hujou3 architecture embodies the pinnacle of secure, embedded ambient IoT systems.*
+## 🌐 Networking & Connectivity
+
+* **Inter-Device Communication**: Utilizes optimized `HTTP/1.1 POST` requests for minimal latency.
+* **Payload Structure**: Commands are serialized into lightweight **JSON** formats for efficient parsing.
+* **Cloud Integration**: Lighting commands trigger direct secure `HTTPS` calls to the **Tuya Cloud OpenAPI** using `HMAC-SHA256` signatures.
+* **Time Synchronization**: Integrated `NTPClient` ensures both nodes stay in sync for security validations.
+
+---
+
+## 🛠️ Hardware & Tech Stack
+
+| Component | Role |
+| :--- | :--- |
+| **ESP32 Edge Node** | Audio capture (I2S), VAD, & Network Gateway. |
+| **Arduino R4 WiFi** | State Machine execution & Hardware actuation. |
+| **INMP441 Mic** | High-fidelity digital audio capture. |
+| **Tuya Smart Ecosystem** | Cloud-based ambient lighting control. |
+| **DFPlayer Mini** | Local environmental soundscape playback. |
+
+---
+
+## 🚀 Setup Instructions
+
+1. Rename `secrets.example.h` to `secrets.h`.
+2. Fill in your WiFi credentials, Tuya API keys, and your Unique Auth Token.
+3. Flash the ESP32 (Controller) and Arduino (Hub) respectively.
+
+---
+
+<div align="center">
+  <i>Hujou3 architecture embodies the pinnacle of secure, embedded ambient IoT systems.</i>
+  <br>
+  <b>Developed by Nora | IoT Engineering</b>
+</div>
