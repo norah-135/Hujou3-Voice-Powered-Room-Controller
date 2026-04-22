@@ -63,18 +63,7 @@ To defend against network sniffing and replay attacks, the system utilizes **Tem
 | **INMP441 Mic** | High-fidelity digital audio capture. |
 | **Tuya Smart Ecosystem** | Cloud-based ambient lighting control. |
 | **DFPlayer Mini** | Local environmental soundscape playback. |
-
----
-
-## 🚀 Setup Instructions
-
-1. Rename `secrets.example.h` to `secrets.h`.
-2. Fill in your WiFi credentials, Tuya API keys, and your Unique Auth Token.
-3. Flash the ESP32 (Controller) and Arduino (Hub) respectively.
-
----
-
-<div align="center">
+="center">
   <i>Hujou3 architecture embodies the pinnacle of secure, embedded ambient IoT systems.</i>
   <br>
   <b>Developed by Nora | IoT Engineering</b>
