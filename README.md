@@ -1,6 +1,5 @@
 # Hujou3 (هجوع) 🎙️✨
 
-> *"Your room doesn't just respond to you — it understands you."*
 
 ![Architecture](https://img.shields.io/badge/Architecture-Dual_MCU-00979D?style=for-the-badge) ![AI Engine](https://img.shields.io/badge/AI_Engine-Python_NLP-FFD43B?style=for-the-badge&logo=python&logoColor=blue) ![Security](https://img.shields.io/badge/Security-Hardened_(OWASP)-brightgreen?style=for-the-badge&logo=shield) ![Status](https://img.shields.io/badge/Status-Production_Ready-blue?style=for-the-badge)
 
